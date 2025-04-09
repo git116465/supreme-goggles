@@ -1,0 +1,432 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-image: url("../新洛阳/img/7.jpg");
+}
+
+/* 顶部背景图 */
+.header-bg {
+    background: url('../新洛阳/img/1.jpg') no-repeat center/cover;
+    height: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.header-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.header-bg h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-bg p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.slide-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.slide h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slide p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider-dot.active {
+    background-color: white;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slider-arrow.prev {
+    left: 20px;
+}
+
+.slider-arrow.next {
+    right: 20px;
+}
+
+
+
+
+/* 导航栏 */
+nav {
+    background-color: #7e7b7a;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* 适老模式切换按钮样式 */
+.elderly-mode-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+#elderlyModeBtn {
+    background-color: #d81e06;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#elderlyModeBtn:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}
+
+/* 适老模式样式 */
+body.elderly-mode {
+    font-size: 1.2em;
+    line-height: 1.8;
+}
+
+body.elderly-mode .container {
+    max-width: 1400px;
+}
+
+body.elderly-mode nav ul li a {
+    font-size: 1.3rem;
+    padding: 0.8rem 1.5rem;
+}
+
+body.elderly-mode .header-bg h1 {
+    font-size: 3.5rem;
+}
+
+body.elderly-mode .header-bg p {
+    font-size: 2rem;
+}
+
+body.elderly-mode .section-title {
+    font-size: 2.5rem;
+}
+
+body.elderly-mode .intro-text p,
+body.elderly-mode .info-column a,
+body.elderly-mode .footer-content p {
+    font-size: 1.3rem;
+}
+
+body.elderly-mode .info-column li {
+    margin-bottom: 1.2rem;
+}
+
+/* 适老模式下的按钮文字变化 */
+body.elderly-mode #elderlyModeBtn {
+    content: "退出适老模式";
+    background-color: #4CAF50;
+    padding: 15px 25px;
+    font-size: 18px;
+}
+
+/* 适老模式下的轮播图样式调整 */
+body.elderly-mode .slide h1 {
+    font-size: 3.5rem;
+}
+
+body.elderly-mode .slide p {
+    font-size: 2rem;
+}
+
+body.elderly-mode .slider-dot {
+    width: 16px;
+    height: 16px;
+}
+
+body.elderly-mode .slider-arrow {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+}
+
+
+/* 主体内容 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.section-title {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2rem;
+    color: #d81e06;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #d81e06;
+    margin: 0.5rem auto;
+}
+
+.luoyang-intro {
+    display: flex;
+    margin: 2rem 0;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.intro-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.intro-text p {
+    margin-bottom: 1rem;
+    text-indent: 2em;
+}
+
+.intro-img {
+    flex: 1;
+    min-width: 450px;
+}
+
+.intro-img img {
+    width: 100%;
+    height: 200;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 页脚 */
+footer {
+    background-color: #7e7b7a;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin-bottom: 0.5rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .header-bg {
+        height: 400px;
+    }
+    
+    .header-bg h1 {
+        font-size: 2rem;
+    }
+    
+    .header-bg p {
+        font-size: 1.2rem;
+    }
+    
+    .header-overlay {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-bg {
+        height: 300px;
+    }
+    
+    .header-bg h1 {
+        font-size: 1.8rem;
+    }
+    
+    .header-bg p {
+        font-size: 1rem;
+    }
+    
+    .header-overlay {
+        padding: 1rem;
+    }
+}
+/* 相关信息链接部分样式 */
+.info-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.info-column {
+    flex: 1;
+    min-width: 250px;
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.info-column h3 {
+    color: #d81e06;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #d81e06;
+}
+
+.info-column ul {
+    list-style: none;
+}
+
+.info-column li {
+    margin-bottom: 0.8rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.info-column li:before {
+    content: "•";
+    color: #d81e06;
+    position: absolute;
+    left: 0;
+}
+
+.info-column a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 0.3rem 0;
+}
+
+.info-column a:hover {
+    color: #d81e06;
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .info-column {
+        min-width: 100%;
+    }
+}
